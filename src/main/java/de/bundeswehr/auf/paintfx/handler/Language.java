@@ -33,4 +33,19 @@ public class Language {
         return property;
     }
 
+    /**
+     * {@code {}} in {@code key} will be consecutively replaced by {@code args}.
+     *
+     * @param key
+     * @param args
+     * @return
+     */
+    public String get(String key, String...args) {
+        String property = get(key);
+        for (String arg : args) {
+            property = property.replaceFirst("\\{\\}", arg);
+        }
+        return property;
+    }
+
 }

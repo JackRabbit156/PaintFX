@@ -1,3 +1,9 @@
+action.choose-eraser=Radierer
+action.choose-filler=Mit Farbe füllen
+action.choose-pen=Stift
+action.choose-pipette=Farbauswahl
+action.choose-text=Text
+action.choose-zoom=Zoom
 action.copy=Kopieren
 action.cut=Ausschneiden
 action.crop=Zuschneiden
@@ -15,10 +21,18 @@ button.clear-all=Alle Entfernen
 errors=Schwerwiegende Fehler
 
 menu.clipboard=Zwischenablage
+menu.colors=Farben
+menu.display=Anzeige
+menu.effects=Effekte
 menu.file=Datei
-menu.image=Fenster
+menu.image=Bild
+menu.forms=Formen
+menu.layers=Ebenen
+menu.show=Ein- oder Ausblenden
 menu.start=Start
+menu.tools=Tools
 menu.view=Ansicht
+menu.zoom=Zoom
 
 tooltip.new-errors=Interner Fehler aufgetreten\nFür mehr Details bitte anklicken
 tooltip.no-new-errors=Interne Fehler\nFür mehr Details bitte anklicken

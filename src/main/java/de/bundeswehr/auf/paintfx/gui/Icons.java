@@ -43,8 +43,28 @@ public class Icons {
     }
 
     @Bean
+    private String eraser16() {
+        return createIcon("eraser", 16);
+    }
+
+    @Bean
+    private String filler16() {
+        return createIcon("filler", 16);
+    }
+
+    @Bean
     private String move16() {
         return createIcon("move", 16);
+    }
+
+    @Bean
+    private String pencil16() {
+        return createIcon("pencil", 16);
+    }
+
+    @Bean
+    private String pipette16() {
+        return createIcon("pipette", 16);
     }
 
     @Bean
@@ -88,8 +108,18 @@ public class Icons {
     }
 
     @Bean
+    private String text16() {
+        return createIcon("text", 16);
+    }
+
+    @Bean
     private String undo16() {
         return createIcon("undo", 16);
+    }
+
+    @Bean
+    private String zoom16() {
+        return createIcon("zoom", 16);
     }
 
     private String createIcon(String name) {
