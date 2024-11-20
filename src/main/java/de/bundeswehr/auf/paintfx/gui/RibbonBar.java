@@ -52,13 +52,13 @@ public class RibbonBar extends Ribbon {
     @PostConstruct
     private void initialize() {
         setSelectedRibbonTab(null); // failsafe
-        createQuickAccesBar();
+        createQuickAccessBar();
         createFileMenu();
         createStartTab();
         createViewTab();
     }
 
-    private void createQuickAccesBar() {
+    private void createQuickAccessBar() {
         QuickAccessBar quickAccessBar = new QuickAccessBar();
         setQuickAccessBar(quickAccessBar);
 
