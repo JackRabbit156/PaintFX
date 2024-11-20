@@ -32,8 +32,8 @@ public class PaintingArea {
     @Getter
     private final ZoomableScrollPane component = new ZoomableScrollPane();
     private GraphicsContext ctx;
-    @Resource
-    private Border debugBorder;
+//    @Resource
+//    private Border debugBorder;
     @Resource
     private Color shadow;
     @Resource

@@ -39,10 +39,6 @@ public class App extends Application {
             setup.setStage(primaryStage);
             ExecutorService executorService = context.getBean(ExecutorService.class);
             primaryStage.setOnCloseRequest(event -> {
-                setup.set("h", primaryStage.getHeight());
-                setup.set("w", primaryStage.getWidth());
-                setup.set("x", primaryStage.getX());
-                setup.set("y", primaryStage.getY());
                 setup.saveProperties();
                 executorService.shutdown();
                 context.close();
@@ -64,12 +60,12 @@ public class App extends Application {
 
             primaryStage.setX(setup.get("x", 2500.)); // TODO 0
             primaryStage.setY(setup.get("y", 300)); // TODO 0
-            primaryStage.setWidth(setup.get("w", 800.)); // TODO 0
-            primaryStage.setHeight(setup.get("h", 600.)); // TODO 0
+            primaryStage.setWidth(setup.get("w", 1300.)); // TODO desktop width
+            primaryStage.setHeight(setup.get("h", 600.)); // TODO desktop height
             primaryStage.show();
 
             ribbonBar.selectStartTab();
-            handleArguments(context);
+            handleArguments();
             executorService.execute(() -> {
                 // TODO remove
                 try {
@@ -90,7 +86,7 @@ public class App extends Application {
         }
     }
 
-    private void handleArguments(ApplicationContext context) {
+    private void handleArguments() {
         List<String> args = getParameters().getRaw();
         if (args.size() > 0 && !args.get(0).isEmpty()) {
             log.debug("Starting with arguments: {}", args);

@@ -33,6 +33,7 @@ public class Setup {
     }
 
     public void saveProperties() {
+        updateWindowProperties();
         // TODO
     }
 
@@ -40,6 +41,7 @@ public class Setup {
         properties.setProperty(key, String.valueOf(value));
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T get(String key, T defaultValue) {
         return (T) properties.getOrDefault(key, defaultValue);
     }
@@ -52,6 +54,13 @@ public class Setup {
     @PostConstruct
     private void initialize() {
         // TODO load properties
+    }
+
+    private void updateWindowProperties() {
+        set("h", stage.getHeight());
+        set("w", stage.getWidth());
+        set("x", stage.getX());
+        set("y", stage.getY());
     }
 
 }

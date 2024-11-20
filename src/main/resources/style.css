@@ -4,7 +4,7 @@
  *                                                                             *
  ******************************************************************************/
 .ribbon-group .button:focused {
-    -fx-border-color: transparent, black !important;
+    -fx-border-color: transparent, lightgray !important;
     -fx-border-width: 1, 1 !important;
     -fx-border-style: solid, segments(1, 2) !important;
     -fx-border-radius: 0, 0 !important;
@@ -55,14 +55,14 @@
 }
 
 .ribbon-group .menu-button:focused {
-    -fx-border-color: transparent, black !important;
+    -fx-border-color: transparent, lightgray !important;
     -fx-border-width: 1, 1 !important;
     -fx-border-style: solid, segments(1, 2) !important;
     -fx-border-radius: 0, 0 !important;
     -fx-border-insets: -1 !important;
 }
 
-.ribbon-group .menu-button:disabled, .ribbon-group > .menu-button:default:disabled {
+.ribbon-group .menu-button:disabled, .ribbon-group .menu-button:default:disabled {
     -fx-opacity: 0.4 !important;
 }
 
