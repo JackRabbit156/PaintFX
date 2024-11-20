@@ -1,0 +1,24 @@
+action.redo=Wiederholen
+action.save=Speichern
+action.undo=Rückgängig
+
+button.clear-all=Alle Entfernen
+
+errors=Schwerwiegende Fehler
+
+menu.clipboard.copy=Kopieren
+menu.clipboard.cut=Ausschneiden
+menu.clipboard.paste=Einfügen
+
+menu.group.clipboard=Zwischenablage
+
+menu.image.rotate=Drehen
+
+menu.tab.file=Datei
+menu.tab.start=Start
+menu.tab.view=Ansicht
+
+tooltip.new-errors=Interner Fehler aufgetreten\nFür mehr Details bitte anklicken
+tooltip.no-new-errors=Interne Fehler\nFür mehr Details bitte anklicken
+
+unknown=Unbekannt

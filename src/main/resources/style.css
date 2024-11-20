@@ -1,0 +1,60 @@
+.ribbon-group .menu-button{
+    -fx-border-color: transparent !important;
+    -fx-border-width: 0 !important;
+
+    -fx-background-radius: 0 !important;
+
+    -fx-background-color: transparent !important;
+
+    -fx-font-family:"Segoe UI" !important;
+    -fx-font-size: 1em !important; /* 12 */
+    -fx-text-fill: CONTROLS_LABEL_COLOR !important;
+
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em !important; /* 4 8 4 8 */
+
+    -shrink-animate-on-press: false !important;
+}
+
+.ribbon-group .menu-button.big
+{
+    -fx-min-width: 50px;
+    -fx-max-width: 50px;
+    -fx-min-height: 100px;
+    -fx-max-height: 100px;
+}
+
+.ribbon-group .menu-button:hover{
+    -fx-background-color: RIBBON_BUTTON_HIGHLIGHT_COLOR !important;
+}
+
+.ribbon-group .menu-button:pressed, .ribbon-group .menu-button:default:hover:pressed
+{
+    -fx-background-color: black !important;
+    -fx-text-fill: white !important;
+}
+
+.ribbon-group .menu-button:focused
+{
+    -fx-border-color: transparent, black !important;
+    -fx-border-width: 1, 1 !important;
+    -fx-border-style: solid, segments(1, 2) !important;
+    -fx-border-radius: 0, 0 !important;
+    -fx-border-insets: 1 1 1 1, 0 !important;
+}
+
+.ribbon-group .menu-button:disabled, .ribbon-group > .menu-button:default:disabled
+{
+    -fx-opacity: 0.4 !important;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+.status-bar .left-items {
+    -fx-spacing: 5px;
+}
+
+.status-bar .right-items {
+    -fx-spacing: 5px;
+}
