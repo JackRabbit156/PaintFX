@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +22,14 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Component
-public class RibbonBar extends Ribbon {
+public class RibbonBar {
 
     @Resource
     private String clipboard16;
     @Resource
     private String clipboard48;
+    @Getter
+    private final Ribbon component = new Ribbon();
     @Resource
     private String copy16;
     @Resource
@@ -46,12 +49,12 @@ public class RibbonBar extends Ribbon {
     private String undo16;
 
     public void selectStartTab() {
-        setSelectedRibbonTab(start);
+        component.setSelectedRibbonTab(start);
     }
 
     @PostConstruct
     private void initialize() {
-        setSelectedRibbonTab(null); // failsafe
+        component.setSelectedRibbonTab(null); // failsafe
         createQuickAccessBar();
         createFileMenu();
         createStartTab();
@@ -60,7 +63,7 @@ public class RibbonBar extends Ribbon {
 
     private void createQuickAccessBar() {
         QuickAccessBar quickAccessBar = new QuickAccessBar();
-        setQuickAccessBar(quickAccessBar);
+        component.setQuickAccessBar(quickAccessBar);
 
         Button save = new TooltipButton(language.get("action.save"), new ImageView(save16));
         Button undo = new TooltipButton(language.get("action.undo"), new ImageView(undo16));
@@ -70,19 +73,19 @@ public class RibbonBar extends Ribbon {
 
     private void createViewTab() {
         RibbonTab view = new RibbonTab(language.get("menu.tab.view"));
-        getTabs().add(view);
+        component.getTabs().add(view);
 
     }
 
     private void createFileMenu() {
         RibbonMenu file = new RibbonMenu(language.get("menu.tab.file"));
-        getTabs().add(file);
+        component.getTabs().add(file);
 
     }
 
     private void createStartTab() {
         start = new RibbonTab(language.get("menu.tab.start"));
-        getTabs().add(start);
+        component.getTabs().add(start);
         createClipboardGroup(start);
         createImageGroup(start);
 

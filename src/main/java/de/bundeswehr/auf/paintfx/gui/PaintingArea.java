@@ -10,6 +10,7 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Component
-public class PaintingArea extends ZoomableScrollPane {
+public class PaintingArea {
 
     private static final int DEFAULT_WIDTH = 500;
     private static final int DEFAULT_HEIGHT = 500;
@@ -28,6 +29,8 @@ public class PaintingArea extends ZoomableScrollPane {
     private final StackPane backgroundPane = new StackPane();
     @Resource
     private Color background;
+    @Getter
+    private final ZoomableScrollPane component = new ZoomableScrollPane();
     private GraphicsContext ctx;
     @Resource
     private Border debugBorder;
@@ -38,9 +41,9 @@ public class PaintingArea extends ZoomableScrollPane {
 
     @PostConstruct
     private void initialize() {
-        setBackground(new Background(new BackgroundFill(background, CornerRadii.EMPTY, Insets.EMPTY)));
+        component.setBackground(new Background(new BackgroundFill(background, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        statusBar.bindZoom(scaleProperty());
+        statusBar.bindZoom(component.scaleProperty());
 
         resetCanvas();
         backgroundPane.setBackground(new Background(new BackgroundImage(createPattern(), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
@@ -51,15 +54,15 @@ public class PaintingArea extends ZoomableScrollPane {
             if (event.isAltDown()) {
                 event.consume();
                 double deltaY = event.getDeltaY() * HORIZONTAL_SCROLL_SPEED;
-                setHvalue(getHvalue() - deltaY);
+                component.setHvalue(component.getHvalue() - deltaY);
             }
             else if (!event.isControlDown()) {
                 event.consume();
                 double deltaY = event.getDeltaY() * VERTICAL_SCROLL_SPEED;
-                setVvalue(getVvalue() - deltaY);
+                component.setVvalue(component.getVvalue() - deltaY);
             }
         });
-        setZoomableContent(root);
+        component.setZoomableContent(root);
         // Test
         ctx.setStroke(Color.RED);
         ctx.setLineWidth(3);

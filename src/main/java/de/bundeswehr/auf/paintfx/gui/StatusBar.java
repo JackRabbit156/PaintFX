@@ -16,14 +16,14 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.tools.Tool;
 
 @Component
-public class StatusBar extends org.controlsfx.control.StatusBar {
+public class StatusBar {
 
     private Label alert;
     @Resource
@@ -31,6 +31,8 @@ public class StatusBar extends org.controlsfx.control.StatusBar {
     @Resource
     private String alerted16;
     private final StringProperty canvasSize = new SimpleStringProperty();
+    @Getter
+    private final org.controlsfx.control.StatusBar component = new org.controlsfx.control.StatusBar();
     @Resource
     private ErrorAlert errorAlert;
     @Resource
@@ -76,11 +78,11 @@ public class StatusBar extends org.controlsfx.control.StatusBar {
         // left
         Label mousePosition = createLabel(this.mousePosition, move16);
         Label canvasSize = createLabel(this.canvasSize, size16);
-        getLeftItems().addAll(mousePosition, separator(), canvasSize, separator());
+        component.getLeftItems().addAll(mousePosition, separator(), canvasSize, separator());
         // label
-        setText("");
+        component.setText("");
         // progress
-        setProgress(0.0);
+        component.setProgress(0.0);
         // right
         alert = createIconLabel("");
         alert.setOnMouseClicked(event -> errorAlert.toggleShowing());
@@ -89,10 +91,10 @@ public class StatusBar extends org.controlsfx.control.StatusBar {
         Label zoom = new Label();
         zoom.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         zoom.textProperty().bind(Bindings.createStringBinding(() -> String.format("%.0f%%", this.zoom.get() * 100), this.zoom));
-        zoom.styleProperty().bind(styleProperty());
+        zoom.styleProperty().bind(component.styleProperty());
         zoom.getStyleClass().add("status-label");
 
-        getRightItems().addAll(separator(), alert, separator(), zoom);
+        component.getRightItems().addAll(separator(), alert, separator(), zoom);
     }
 
     private Label createIconLabel(String image) {
@@ -101,7 +103,7 @@ public class StatusBar extends org.controlsfx.control.StatusBar {
         if (!image.isEmpty()) {
             label.setGraphic(new ImageView(image));
         }
-        label.styleProperty().bind(styleProperty());
+        label.styleProperty().bind(component.styleProperty());
         label.getStyleClass().add("status-label");
         return label;
     }
@@ -114,7 +116,7 @@ public class StatusBar extends org.controlsfx.control.StatusBar {
         if (!image.isEmpty()) {
             label.setGraphic(new ImageView(image));
         }
-        label.styleProperty().bind(styleProperty());
+        label.styleProperty().bind(component.styleProperty());
         label.getStyleClass().add("status-label");
         return label;
     }

@@ -18,9 +18,6 @@ public class Title {
     private Language language;
     @Resource
     private Setup setup;
-    @Lazy
-    @Resource
-    private Stage stage;
     private final StringProperty titleProperty = new SimpleStringProperty();
 
 

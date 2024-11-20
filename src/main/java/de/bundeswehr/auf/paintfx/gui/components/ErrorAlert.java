@@ -9,17 +9,18 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
-import javafx.stage.Stage;
+import lombok.Getter;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 @Component
-public class ErrorAlert extends Dialog<ButtonType> {
+public class ErrorAlert {
 
+    @Getter
+    private final Dialog<ButtonType> dialog = new Dialog<>();
     @Resource
     private Language language;
     @Resource
@@ -35,24 +36,22 @@ public class ErrorAlert extends Dialog<ButtonType> {
     }
 
     public void toggleShowing() {
-        if (isShowing()) {
-            close();
+        if (dialog.isShowing()) {
+            dialog.close();
         }
         else {
-            if (getOwner() == null) {
-                initOwner(setup.getStage());
+            if (dialog.getOwner() == null) {
+                dialog.initOwner(setup.getStage());
             }
-            show();
+            dialog.show();
         }
     }
 
     @PostConstruct
     private void initialize() {
-        setOnShowing(event -> {
-            statusBar.setUnAlerted();
-        });
-        setTitle(language.get("errors"));
-        initModality(Modality.NONE);
+        dialog.setOnShowing(event -> statusBar.setUnAlerted());
+        dialog.setTitle(language.get("errors"));
+        dialog.initModality(Modality.NONE);
 
         TextArea stackTrace = new TextArea();
         ListView<Throwable> throwables = new ListView<>(this.throwables);
@@ -61,11 +60,11 @@ public class ErrorAlert extends Dialog<ButtonType> {
 
         BorderPane root = new BorderPane(stackTrace);
         root.setLeft(throwables);
-        getDialogPane().setContent(root);
+        dialog.getDialogPane().setContent(root);
 
         ButtonType clearAll = new ButtonType(language.get("button.clear-all"), ButtonBar.ButtonData.FINISH);
-        getDialogPane().getButtonTypes().addAll(clearAll, ButtonType.CLOSE);
-        Button clearAllButton = (Button) getDialogPane().lookupButton(clearAll);
+        dialog.getDialogPane().getButtonTypes().addAll(clearAll, ButtonType.CLOSE);
+        Button clearAllButton = (Button) dialog.getDialogPane().lookupButton(clearAll);
         clearAllButton.setDefaultButton(false);
         clearAllButton.setOnAction(event -> {
             stackTrace.clear();
