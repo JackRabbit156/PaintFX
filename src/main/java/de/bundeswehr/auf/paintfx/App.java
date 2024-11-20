@@ -53,10 +53,10 @@ public class App extends Application {
             primaryStage.titleProperty().bind(title.titleProperty());
             title.update();
 
-            BorderPane root = new BorderPane(context.getBean(PaintingArea.class));
+            BorderPane root = new BorderPane(context.getBean(PaintingArea.class).getComponent());
             RibbonBar ribbonBar = context.getBean(RibbonBar.class);
-            root.setTop(ribbonBar);
-            root.setBottom(context.getBean(StatusBar.class));
+            root.setTop(ribbonBar.getComponent());
+            root.setBottom(context.getBean(StatusBar.class).getComponent());
 
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
@@ -77,6 +77,7 @@ public class App extends Application {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                setup.setCurrentFile(null);
                 throw new IllegalArgumentException("Test");
             });
         } catch (Throwable e) {
