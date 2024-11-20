@@ -1,22 +1,24 @@
+action.copy=Kopieren
+action.cut=Ausschneiden
+action.crop=Zuschneiden
+action.paste=Einfügen
 action.redo=Wiederholen
+action.resize=Leinwandgröße
+action.rotate=Drehen
 action.save=Speichern
+action.scale=Größe ändern
+action.select=Auswählen
 action.undo=Rückgängig
 
 button.clear-all=Alle Entfernen
 
 errors=Schwerwiegende Fehler
 
-menu.clipboard.copy=Kopieren
-menu.clipboard.cut=Ausschneiden
-menu.clipboard.paste=Einfügen
-
-menu.group.clipboard=Zwischenablage
-
-menu.image.rotate=Drehen
-
-menu.tab.file=Datei
-menu.tab.start=Start
-menu.tab.view=Ansicht
+menu.clipboard=Zwischenablage
+menu.file=Datei
+menu.image=Fenster
+menu.start=Start
+menu.view=Ansicht
 
 tooltip.new-errors=Interner Fehler aufgetreten\nFür mehr Details bitte anklicken
 tooltip.no-new-errors=Interne Fehler\nFür mehr Details bitte anklicken

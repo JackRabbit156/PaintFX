@@ -28,6 +28,11 @@ public class Icons {
     }
 
     @Bean
+    private String crop16() {
+        return createIcon("crop", 16);
+    }
+
+    @Bean
     private String cut16() {
         return createIcon("cut", 16);
     }
@@ -48,6 +53,11 @@ public class Icons {
     }
 
     @Bean
+    private String resize16() {
+        return createIcon("resize", 16);
+    }
+
+    @Bean
     private String rotate16() {
         return createIcon("rotate", 16);
     }
@@ -63,6 +73,16 @@ public class Icons {
     }
 
     @Bean
+    private String scale16() {
+        return createIcon("scale", 16);
+    }
+
+    @Bean
+    private String select48() {
+        return createIcon("select", 48);
+    }
+
+    @Bean
     private String size16() {
         return createIcon("size", 16);
     }
@@ -72,12 +92,16 @@ public class Icons {
         return createIcon("undo", 16);
     }
 
+    private String createIcon(String name) {
+        return "/icons/icons8-" + name + "-100.png";
+    }
+
     private String createIcon(String name, int size) {
         return "/icons/icons8-" + name + "-" + size + ".png";
     }
 
     private Image createImage(String name, int size) {
-        return new Image(createIcon(name, size));
+        return new Image(createIcon(name), size, size, true, true);
     }
 
 }
