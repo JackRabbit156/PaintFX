@@ -1,9 +1,27 @@
 /*******************************************************************************
  *                                                                             *
- * RibbonBar                                                                   *
+ * FXRibbon                                                                   *
  *                                                                             *
  ******************************************************************************/
-.ribbon-group .menu-button{
+.ribbon-group .button:focused {
+    -fx-border-color: transparent, black !important;
+    -fx-border-width: 1, 1 !important;
+    -fx-border-style: solid, segments(1, 2) !important;
+    -fx-border-radius: 0, 0 !important;
+    -fx-border-insets: -1 !important;
+}
+
+.ribbon-group .button:pressed, .ribbon-group .button:default:hover:pressed {
+    -fx-background-color: RIBBON_BUTTON_SELECTED_COLOR !important;
+    -fx-text-fill: CONTROLS_LABEL_COLOR !important;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * MenuButton                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+.ribbon-group .menu-button {
     -fx-border-color: transparent !important;
     -fx-border-width: 0 !important;
 
@@ -20,35 +38,31 @@
     -shrink-animate-on-press: false !important;
 }
 
-.ribbon-group .menu-button.big
-{
+.ribbon-group .menu-button.big {
     -fx-min-width: 50px;
     -fx-max-width: 50px;
     -fx-min-height: 100px;
     -fx-max-height: 100px;
 }
 
-.ribbon-group .menu-button:hover{
+.ribbon-group .menu-button:hover {
     -fx-background-color: RIBBON_BUTTON_HIGHLIGHT_COLOR !important;
 }
 
-.ribbon-group .menu-button:pressed, .ribbon-group .menu-button:default:hover:pressed
-{
-    -fx-background-color: black !important;
-    -fx-text-fill: white !important;
+.ribbon-group .menu-button:pressed, .ribbon-group .menu-button:default:hover:pressed {
+    -fx-background-color: RIBBON_BUTTON_SELECTED_COLOR !important;
+    -fx-text-fill: CONTROLS_LABEL_COLOR !important;
 }
 
-.ribbon-group .menu-button:focused
-{
+.ribbon-group .menu-button:focused {
     -fx-border-color: transparent, black !important;
     -fx-border-width: 1, 1 !important;
     -fx-border-style: solid, segments(1, 2) !important;
     -fx-border-radius: 0, 0 !important;
-    -fx-border-insets: 1 1 1 1, 0 !important;
+    -fx-border-insets: -1 !important;
 }
 
-.ribbon-group .menu-button:disabled, .ribbon-group > .menu-button:default:disabled
-{
+.ribbon-group .menu-button:disabled, .ribbon-group > .menu-button:default:disabled {
     -fx-opacity: 0.4 !important;
 }
 
@@ -79,10 +93,24 @@
  * CaptionMenuItem                                                             *
  *                                                                             *
  ******************************************************************************/
-.caption-menu-item:hover {
-    -fx-background-color: transparent;
-    }
+.caption-menu-item {
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-border-color: transparent, lightgray;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: -1;
+}
 
-.caption-menu-item:hover > .label{
+.caption-menu-item:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+.caption-menu-item:hover > .label {
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.caption-menu-item:focused > .label {
     -fx-text-fill: -fx-text-base-color;
 }
