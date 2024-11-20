@@ -69,9 +69,13 @@ public class PaintingArea extends ZoomableScrollPane {
         ctx.fillRect(400, 0, 50, 500);
     }
 
-    private void resetCanvas() {
-        backgroundPane.getChildren().clear();
-        backgroundPane.getChildren().add(createCanvas());
+    private Canvas createCanvas() {
+        Canvas canvas = new Canvas();
+        statusBar.bindCanvas(canvas);
+        canvas.setWidth(DEFAULT_WIDTH);
+        canvas.setHeight(DEFAULT_HEIGHT);
+        ctx = canvas.getGraphicsContext2D();
+        return canvas;
     }
 
     private WritableImage createPattern() {
@@ -107,13 +111,9 @@ public class PaintingArea extends ZoomableScrollPane {
         return img;
     }
 
-    private Canvas createCanvas() {
-        Canvas canvas = new Canvas();
-        statusBar.bindCanvas(canvas);
-        canvas.setWidth(DEFAULT_WIDTH);
-        canvas.setHeight(DEFAULT_HEIGHT);
-        ctx = canvas.getGraphicsContext2D();
-        return canvas;
+    private void resetCanvas() {
+        backgroundPane.getChildren().clear();
+        backgroundPane.getChildren().add(createCanvas());
     }
 
 }
