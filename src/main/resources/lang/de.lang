@@ -1,9 +1,10 @@
+action.choose-brush=Pinsel
 action.choose-eraser=Radierer
 action.choose-filler=Mit Farbe füllen
 action.choose-pen=Stift
 action.choose-pipette=Farbauswahl
 action.choose-text=Text
-action.choose-zoom=Zoom
+action.choose-zoom=Zoomen
 action.copy=Kopieren
 action.cut=Ausschneiden
 action.crop=Zuschneiden

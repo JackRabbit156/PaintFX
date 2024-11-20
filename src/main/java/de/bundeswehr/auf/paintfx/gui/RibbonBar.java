@@ -78,12 +78,23 @@ public class RibbonBar {
         createClipboardGroup(start);
         createImageGroup(start);
         createToolsGroup(start);
+        createBrushGroup(start);
 
+    }
+
+    private void createBrushGroup(RibbonTab tab) {
+        RibbonGroup clipboard = new RibbonGroup();
+        clipboard.setTitle("");
+        tab.getRibbonGroups().add(clipboard);
+
+        MenuButton brush = TooltipMenuButton.big(language.get("action.choose-brush"), image("brush48"));
+
+        clipboard.getNodes().add(brush);
     }
 
     private void createClipboardGroup(RibbonTab tab) {
         RibbonGroup clipboard = new RibbonGroup();
-        clipboard.setTitle(language.get("action.clipboard"));
+        clipboard.setTitle(language.get("menu.clipboard"));
         tab.getRibbonGroups().add(clipboard);
 
         Button paste = TooltipButton.big(language.get("action.paste"), image("clipboard48"));

@@ -18,6 +18,11 @@ public class Icons {
     }
 
     @Bean
+    private String brush48() {
+        return createIcon("brush", 48);
+    }
+
+    @Bean
     private String clipboard16() {
         return createIcon("clipboard", 16);
     }
