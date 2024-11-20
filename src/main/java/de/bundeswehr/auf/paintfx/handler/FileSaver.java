@@ -11,8 +11,6 @@ public class FileSaver {
 
     @Resource
     private Setup setup;
-    @Resource
-    private Title title;
 
     public void save() {
         saveTo(setup.getCurrentFile());
@@ -25,7 +23,6 @@ public class FileSaver {
     private void saveTo(File file) {
         // TODO
         setup.setCurrentFile(file);
-        title.update();
     }
 
 }

@@ -11,13 +11,10 @@ public class FileLoader {
 
     @Resource
     private Setup setup;
-    @Resource
-    private Title title;
 
     public void load(String filename) {
         // TODO
         setup.setCurrentFile(new File(filename));
-        title.update();
     }
 
 }

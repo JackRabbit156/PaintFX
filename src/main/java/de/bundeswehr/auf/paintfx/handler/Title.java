@@ -24,6 +24,7 @@ public class Title {
     public StringProperty titleProperty() {
         return titleProperty;
     }
+
     public void update() {
         Platform.runLater(() -> {
             titleProperty.set(get());
