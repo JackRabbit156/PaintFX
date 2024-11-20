@@ -1,3 +1,8 @@
+/*******************************************************************************
+ *                                                                             *
+ * RibbonBar                                                                   *
+ *                                                                             *
+ ******************************************************************************/
 .ribbon-group .menu-button{
     -fx-border-color: transparent !important;
     -fx-border-width: 0 !important;
@@ -47,14 +52,37 @@
     -fx-opacity: 0.4 !important;
 }
 
+/*******************************************************************************
+ *                                                                             *
+ * ZoomableScrollPane                                                          *
+ *                                                                             *
+ ******************************************************************************/
 .scroll-pane > .viewport {
    -fx-background-color: transparent;
 }
 
+/*******************************************************************************
+ *                                                                             *
+ * StatusBar                                                                   *
+ *                                                                             *
+ ******************************************************************************/
 .status-bar .left-items {
     -fx-spacing: 5px;
 }
 
 .status-bar .right-items {
     -fx-spacing: 5px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * CaptionMenuItem                                                             *
+ *                                                                             *
+ ******************************************************************************/
+.caption-menu-item:hover {
+    -fx-background-color: transparent;
+    }
+
+.caption-menu-item:hover > .label{
+    -fx-text-fill: -fx-text-base-color;
 }
