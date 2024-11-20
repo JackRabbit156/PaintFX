@@ -11,13 +11,15 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 @Component
 public class ErrorHandlingExecutorService extends ScheduledThreadPoolExecutor {
 
+    private static int counter;
+
     @Resource
     private ErrorHandler errorHandler;
 
     ErrorHandlingExecutorService() {
         super(8);
         setThreadFactory(r -> {
-            final Thread thread = new Thread(r);
+            final Thread thread = new Thread(r, "pool-thread-" + counter++);
             thread.setUncaughtExceptionHandler(errorHandler);
             return thread;
         });
