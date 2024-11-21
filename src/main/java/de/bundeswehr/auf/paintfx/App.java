@@ -55,6 +55,7 @@ public class App extends Application {
             root.setBottom(context.getBean(StatusBar.class).getComponent());
 
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(ribbonBar.getComponent().getUserAgentStylesheet());
             scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
             primaryStage.setScene(scene);
 
