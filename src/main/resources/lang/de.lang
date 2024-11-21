@@ -5,9 +5,11 @@ action.choose-pen=Stift
 action.choose-pipette=Farbauswahl
 action.choose-text=Text
 action.choose-zoom=Zoomen
+action.close=Schließen
 action.copy=Kopieren
 action.cut=Ausschneiden
 action.crop=Zuschneiden
+action.information=Informationen
 action.paste=Einfügen
 action.redo=Wiederholen
 action.resize=Leinwandgröße
@@ -20,6 +22,10 @@ action.undo=Rückgängig
 button.clear-all=Alle Entfernen
 
 errors=Schwerwiegende Fehler
+
+info.title=Informationen über PaintFX
+info.header=PaintFX v{}
+info.content=PaintFX is a general-purpose raster graphics editor with vector-based elements.\nIt is an application for drawing, graphics and image editing, using forms and layers.\n\nIt has the easy to use GUI of Microsoft Paint and more functionality than paint.net, but is not as overcrowded and cluttered as GIMP and not as costly as Adobe Photoshop.\n\nThis tool was created by Frank Rieger as a studying project for JavaFX.
 
 menu.clipboard=Zwischenablage
 menu.colors=Farben

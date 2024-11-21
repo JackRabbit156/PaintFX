@@ -1,17 +1,16 @@
 package de.bundeswehr.auf.paintfx.gui;
 
 import com.pixelduke.control.Ribbon;
-import com.pixelduke.control.ribbon.Column;
-import com.pixelduke.control.ribbon.QuickAccessBar;
-import com.pixelduke.control.ribbon.RibbonGroup;
-import com.pixelduke.control.ribbon.RibbonTab;
-import de.bundeswehr.auf.paintfx.gui.components.*;
+import com.pixelduke.control.ribbon.*;
+import de.bundeswehr.auf.paintfx.gui.actions.About;
+import de.bundeswehr.auf.paintfx.gui.actions.Close;
+import de.bundeswehr.auf.paintfx.gui.components.CaptionMenuItem;
+import de.bundeswehr.auf.paintfx.gui.components.TooltipButton;
+import de.bundeswehr.auf.paintfx.gui.components.TooltipIconButton;
+import de.bundeswehr.auf.paintfx.gui.components.TooltipMenuButton;
 import de.bundeswehr.auf.paintfx.handler.Language;
 import de.bundeswehr.auf.paintfx.handler.SelectionHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -70,6 +69,25 @@ public class RibbonBar {
         RibbonMenu file = new RibbonMenu(language.get("menu.file"));
         component.getTabs().add(file);
 
+        MenuItem newAction = new MenuItem(language.get("action.new"));
+        MenuItem load = new MenuItem(language.get("action.open"));
+        MenuItem save = new MenuItem(language.get("action.save"));
+        MenuItem saveAs = new MenuItem(language.get("action.save-as"));
+        file.getItems().addAll(newAction, load, save, saveAs);
+
+        MenuItem print = new MenuItem(language.get("action.print"));
+        file.getItems().addAll(new SeparatorMenuItem(), print);
+
+        MenuItem properties = new MenuItem(language.get("action.properties"));
+        file.getItems().addAll(new SeparatorMenuItem(), properties);
+
+        MenuItem information = new MenuItem(language.get("action.information"));
+        information.setOnAction(context.getBean(About.class));
+        file.getItems().addAll(new SeparatorMenuItem(), information);
+
+        MenuItem close = new MenuItem(language.get("action.close"));
+        close.setOnAction(context.getBean(Close.class));
+        file.getItems().addAll(new SeparatorMenuItem(), close);
     }
 
     private void createStartTab() {

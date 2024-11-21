@@ -1,6 +1,6 @@
 # PaintFX
 
-PaintFX general-purpose raster graphics editor with vector-based elements. 
+PaintFX is a general-purpose raster graphics editor with vector-based elements. 
 It is an application for drawing, graphics and image editing, using forms and layers.
 
 It has the easy to use GUI of Microsoft Paint and more functionality than paint.net, but is not as overcrowded and 
